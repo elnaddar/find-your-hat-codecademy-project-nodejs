@@ -12,6 +12,11 @@ class Field{
         this.field[x][y] = val;
     }
 
+    getLocationVal(loc){
+        let [x, y] = loc;
+        return this.field[x][y];
+    }
+
     print(){
         this.field.forEach(row => {
             console.log(row.join(""));
