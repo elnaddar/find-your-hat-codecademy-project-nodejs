@@ -44,7 +44,7 @@ class Locator{
         } else{
             console.log(`You can't go ${dir}`);
         }
-        console.log(this.currentLocation);
+        return loc;
     }
 
     peak(dir){
@@ -58,8 +58,9 @@ class Locator{
                 return this.canGoRight? [x, y+1]: null;
             case 'l':
                 return this.canGoLeft? [x, y-1]: null;
+            default:
+                return null;
         }
-        return null;
     }
     
 }
