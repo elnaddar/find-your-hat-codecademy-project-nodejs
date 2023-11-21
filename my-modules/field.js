@@ -1,27 +1,27 @@
-class Field{
-    constructor(field){
+class Field {
+    constructor(field) {
         this.field = field;
     }
 
-    get boundries(){
+    get boundries() {
         return [this.field.length, this.field[0].length]
     }
 
-    setLocationTo(loc, val){
+    setLocationTo(loc, val) {
         let [x, y] = loc;
         this.field[x][y] = val;
     }
 
-    getLocationVal(loc){
+    getLocationVal(loc) {
         let [x, y] = loc;
         return this.field[x][y];
     }
 
-    print(){
+    print() {
         this.field.forEach(row => {
             console.log(row.join(""));
         });
     }
 }
 
-module.exports = {Field};
+module.exports = { Field };
