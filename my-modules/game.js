@@ -1,4 +1,5 @@
 const { Locator } = require("./locator");
+const prompt = require('prompt-sync')({sigint: true});
 
 class Game {
     constructor(field, theme) {
@@ -9,11 +10,13 @@ class Game {
 
     play() {
         this.field.print();
-        process.stdin.on('data', this.directionCallback.bind(this));
+        while (true) {
+            this.askQuestion();
+        }
     }
 
-    directionCallback(data) {
-        const dir = data.toString().trim();
+    askQuestion() {
+        const dir = prompt('Which way? ').toLowerCase();
         let loc = this.locator.goTo(dir);
         this.gameCase(loc);
     }
